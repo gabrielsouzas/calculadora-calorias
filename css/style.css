@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Variaveis */
+:root {
+    --bg-color: #10101a;
+    --main-color: #bf2f2f;
+    --text-color: #fff;
+}
+
+/* Body */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+}
+
+/* Navbar */
+.logo {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 3px;
+}
+
+.navbar a:hover {
+    background: var(--main-color);
+    transition: .3s;
+}
+
+/* MENU HAMBURGUER */
+#menu-icon {
+    font-size: 28px;
+    z-index: 10001;
+    cursor: pointer;
+    display: block;
+}
