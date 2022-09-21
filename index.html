@@ -12,10 +12,13 @@
     <!-- Javascript -->
     <script defer src="js/script.js"></script>
 
+    <!-- Link BoxIcons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Calc<span>uladora</span></a>
+        <a href="#" class="logo">Calc<span>calorias</span></a>
         <div class="bx bx-menu" id="menu-icon"></div>
 
         <ul class="navbar">
@@ -30,6 +33,7 @@
 
         <section class="calculadora">
             <form action="">
+                <label for="inpalimentos">Alimento: </label>
                 <input type="text" name="inpalimentos" list="list-alimentos" placeholder="Selecione um alimento"/>
                 <datalist id="list-alimentos">
                     <option value="Selecione">Selecione</option>

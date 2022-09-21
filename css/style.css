@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+/* Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* Reset */
 * {
     padding: 0;
@@ -7,6 +10,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: 'Rubik', sans-serif;
 }
 
 /* Variaveis */
@@ -39,6 +43,7 @@ header {
     color: var(--text-color);
     font-size: 1.8rem;
     font-weight: 600;
+    padding: 1rem;
 }
 
 span {
@@ -47,14 +52,32 @@ span {
 
 .navbar {
     display: flex;
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: #0b0b13;
+    box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 70%);
+    text-align: left;
+    transition: 0.2s ease;
 }
-
 .navbar a {
     color: var(--text-color);
     font-size: 1rem;
-    padding: 10px 20px;
     font-weight: 500;
     border-radius: 3px;
+
+    display: block;
+    padding: 1rem;
+    border-left: 2px solid var(--main-color);
+    margin: 1rem;
+    display: block;
+    
+}
+.active {
+    top: 100%;
 }
 
 .navbar a:hover {
@@ -68,4 +91,83 @@ span {
     z-index: 10001;
     cursor: pointer;
     display: block;
+    padding: 1rem;
+}
+
+/* Section */
+section {
+    padding: 0 1rem;
+}
+
+/* Home */
+.home {
+    padding-top: 80px;
+    padding-bottom: 35px;
+    text-align: center;
+}
+
+.home h1 {
+    /*font-family: 'Bungee Spice', cursive;*/
+    font-size: 1.3rem;
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--text-color);
+}
+
+/* Calculadora */
+.calculadora {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.calculadora label {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.calculadora input {
+    padding: 5px;
+}
+
+.calculadora button {
+    padding: 5px 10px;
+    background: var(--main-color);
+    color: var(--text-color);
+    box-shadow: 4px 4px var(--text-color);
+    transition: ease all 0.35s;
+}
+
+.calculadora button:hover {
+    background: var(--text-color);
+    color: var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid var(--text-color);
+    padding: 10px 30px;
+    text-align: center;
+}
+
+th {
+    font-size: 1.3rem;
+}
+
+td {
+    font-size: 1.1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #ec7d7d;
+}
+/* Macete para a tabela responsiva */
+div#container {
+    overflow-x: auto;
 }
