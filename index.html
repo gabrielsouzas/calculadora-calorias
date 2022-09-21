@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Javascript -->
+    <script defer src="data/alimentos.js"></script>
     <script defer src="js/script.js"></script>
 
     <!-- Link BoxIcons -->
@@ -32,27 +33,31 @@
         </section>
 
         <section class="calculadora">
-            <form action="">
+            <div class="container">
                 <label for="inpalimentos">Alimento: </label>
-                <input type="text" name="inpalimentos" list="list-alimentos" placeholder="Selecione um alimento"/>
+                <input type="text" id="inpalimentos" name="inpalimentos" list="list-alimentos" placeholder="Selecione um alimento"/>
                 <datalist id="list-alimentos">
                     <option value="Selecione">Selecione</option>
+                    <option value="Carne">Carne</option>
                 </datalist>
-                <button type="submit">+</button>
-            </form>
+                <button id="btnadd" type="submit">+</button>
+            </div>
 
-            <table>
-                <tr>
-                  <th>Alimento</th>
-                  <th>Calorias</th>
-                </tr>
-                <tr>
-                  <td>Frango</td>
-                  <td>300</td>
-                </tr>
-              </table>
+            <div id="table-container">
+                <table>
+                    <tr>
+                      <th>Alimento</th>
+                      <th>Calorias</th>
+                    </tr>
+                    <tr>
+                      <td>Frango</td>
+                      <td>300</td>
+                    </tr>
+                  </table>
+            </div>
 
-              <label class="total">Total: </label>
+              <label>Total: </label>
+              <label id="total">0</label>
         </section>
     </main>
 </body>

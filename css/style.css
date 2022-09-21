@@ -158,16 +158,20 @@ th, td {
 
 th {
     font-size: 1.3rem;
+    background-color: #ec7d7d;
 }
 
 td {
     font-size: 1.1rem;
 }
 
+/*
 tr:nth-child(even) {
     background-color: #ec7d7d;
-}
+}*/
+
 /* Macete para a tabela responsiva */
-div#container {
+#table-container {
     overflow-x: auto;
+    max-height: 333px;
 }
