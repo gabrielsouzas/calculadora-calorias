@@ -35,10 +35,9 @@
         <section class="calculadora">
             <div class="container">
                 <label for="inpalimentos">Alimento: </label>
-                <input type="text" id="inpalimentos" name="inpalimentos" list="list-alimentos" placeholder="Selecione um alimento"/>
+                <input onClick="this.select();" type="text" id="inpalimentos" name="inpalimentos" list="list-alimentos" placeholder="Selecione um alimento"/>
                 <datalist id="list-alimentos">
-                    <option value="Selecione">Selecione</option>
-                    <option value="Carne">Carne</option>
+                    <!-- Lista inserida via JS -->
                 </datalist>
                 <button id="btnadd" type="submit">+</button>
             </div>
