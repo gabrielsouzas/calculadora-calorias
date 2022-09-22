@@ -152,17 +152,17 @@ table {
 
 th, td {
     border: 1px solid var(--text-color);
-    padding: 10px 30px;
+    padding: 5px 15px;
     text-align: center;
 }
 
 th {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     background-color: #ec7d7d;
 }
 
 td {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /*
@@ -173,5 +173,6 @@ tr:nth-child(even) {
 /* Macete para a tabela responsiva */
 #table-container {
     overflow-x: auto;
-    max-height: 333px;
+    max-height: 253px;
+    max-width: 100%;
 }
