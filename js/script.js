@@ -21,12 +21,9 @@ btnAdd.addEventListener('click', () => {
                 primeiroAlimento = false;
             }
             
-            if (verificarAlimentoTabela(alimento)) {
-                table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td></tr>`;
-            } else {
+            if (!verificarAlimentoTabela(alimento)) {
                 table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td></tr>`;
             }
-
             total.innerHTML = Number(total.innerHTML) + Number(alimento.calorias);
         } else {
             alert('Alimento não encontrado');
@@ -45,24 +42,22 @@ function preencherComboBox() {
 // Testa se o alimento já existe na tabela e se não adiciona no array
 function verificarAlimentoTabela(alimento) {
     if (arrayTabela.includes(alimento.nome)) {
+        var nomeAlimento = alimento.nome.split(" ");
         const trs = document.querySelectorAll('tr');
 
         trs.forEach((tr) => {
-            //idsArray.push(tr.getAttribute('id'));
-            //console.log(tr.innerHTML.replaceAll("/", ""))
             let array = tr.innerHTML.replaceAll("/", "").split("<td>");
-            console.log(array)
             if ( array != null) {
-                if (array[1] == alimento.nome) {
-                    let qtde = (Number(array[5])+Number(alimento.calorias)) / Number(alimento.calorias);
-                    tr.innerHTML = `<td>${qtde + " " + array[1]}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td>`;
-                    
+                if (typeof array[1] != "undefined") {
+                    var descAlimento = array[1].split(" ")
+                    if ( descAlimento.at(-1) == alimento.nome) {
+                        let qtde = (Number(array[5])+Number(alimento.calorias)) / Number(alimento.calorias);
+                        tr.innerHTML = `<td>${qtde + " " + descAlimento.at(-1)}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td>`;
+                    }
                 }
+                
             }
-            
-
         });
-
         return true;
       } else {
         arrayTabela.push(alimento.nome);
