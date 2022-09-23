@@ -5,6 +5,7 @@ const total = document.querySelector('#total');
 const comboboxAlimentos = document.querySelector('#list-alimentos');
 
 var primeiroAlimento = true;
+const arrayTabela = [];
 
 // Preenche a caixa de seleção de alimentos com o array de objetos "alimentos"
 preencherComboBox();
@@ -19,7 +20,12 @@ btnAdd.addEventListener('click', () => {
                 table.innerHTML = '<tr><th>Alimento</th><th>Porção</th><th>Calorias</th></tr><tr></tr>';
                 primeiroAlimento = false;
             }
-            table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td></tr>`;
+            
+            if (verificarAlimentoTabela(alimento)) {
+                table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td></tr>`;
+            } else {
+                table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td></tr>`;
+            }
 
             total.innerHTML = Number(total.innerHTML) + Number(alimento.calorias);
         } else {
@@ -34,6 +40,34 @@ function preencherComboBox() {
     alimentos.forEach(element => {
         comboboxAlimentos.innerHTML += `<option value="${element.nome}">${element.nome}</option>`;
     });
+}
+
+// Testa se o alimento já existe na tabela e se não adiciona no array
+function verificarAlimentoTabela(alimento) {
+    if (arrayTabela.includes(alimento.nome)) {
+        const trs = document.querySelectorAll('tr');
+
+        trs.forEach((tr) => {
+            //idsArray.push(tr.getAttribute('id'));
+            //console.log(tr.innerHTML.replaceAll("/", ""))
+            let array = tr.innerHTML.replaceAll("/", "").split("<td>");
+            console.log(array)
+            if ( array != null) {
+                if (array[1] == alimento.nome) {
+                    let qtde = (Number(array[5])+Number(alimento.calorias)) / Number(alimento.calorias);
+                    tr.innerHTML = `<td>${qtde + " " + array[1]}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td>`;
+                    
+                }
+            }
+            
+
+        });
+
+        return true;
+      } else {
+        arrayTabela.push(alimento.nome);
+        return false;
+      }
 }
 
 /*
