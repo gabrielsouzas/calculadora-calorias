@@ -42,12 +42,12 @@ function preencherComboBox() {
 // Testa se o alimento já existe na tabela e se não adiciona no array
 function verificarAlimentoTabela(alimento) {
     if (arrayTabela.includes(alimento.nome)) {
-        var nomeAlimento = alimento.nome.split(" ");
         const trs = document.querySelectorAll('tr');
 
         trs.forEach((tr) => {
             let array = tr.innerHTML.replaceAll("/", "").split("<td>");
             if ( array != null) {
+                // deu erro, remova o primeiro caso tenha mais de 1
                 if (typeof array[1] != "undefined") {
                     var descAlimento = array[1].split(" ")
                     if ( descAlimento.at(-1) == alimento.nome) {
