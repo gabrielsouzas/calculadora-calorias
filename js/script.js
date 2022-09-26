@@ -25,6 +25,10 @@ btnAdd.addEventListener('click', () => {
                 table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td></tr>`;
             }
             total.innerHTML = Number(total.innerHTML) + Number(alimento.calorias);
+
+            // Rolagem tabela p/ o último elemento
+            table.style.scrollTop = table.style.scrollHeight;
+
         } else {
             alert('Alimento não encontrado');
         }
@@ -50,9 +54,16 @@ function verificarAlimentoTabela(alimento) {
                 // deu erro, remova o primeiro caso tenha mais de 1
                 if (typeof array[1] != "undefined") {
                     var descAlimento = array[1].split(" ")
-                    if ( descAlimento.at(-1) == alimento.nome) {
+                    if (descAlimento.length > 1) {
+                        if (!isNaN(descAlimento[0])) {
+                            descAlimento.shift();
+                        }
+                    }
+                    descAlimento = descAlimento.toString().replaceAll(",", " ");
+                    console.log(descAlimento)
+                    if ( descAlimento == alimento.nome) {
                         let qtde = (Number(array[5])+Number(alimento.calorias)) / Number(alimento.calorias);
-                        tr.innerHTML = `<td>${qtde + " " + descAlimento.at(-1)}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td>`;
+                        tr.innerHTML = `<td>${qtde + " " + descAlimento}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td>`;
                     }
                 }
                 
