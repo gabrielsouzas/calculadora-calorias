@@ -1,8 +1,10 @@
 const input = document.querySelector('#inpalimentos');
 const btnAdd = document.querySelector('#btnadd');
 const table = document.querySelector('table');
+const tableContainer = document.querySelector('#table-container');
 const total = document.querySelector('#total');
 const comboboxAlimentos = document.querySelector('#list-alimentos');
+const btnLimparTabela = document.querySelector('#btn-limpar');
 
 var primeiroAlimento = true;
 const arrayTabela = [];
@@ -27,7 +29,7 @@ btnAdd.addEventListener('click', () => {
             total.innerHTML = Number(total.innerHTML) + Number(alimento.calorias);
 
             // Rolagem tabela p/ o último elemento
-            table.style.scrollTop = table.style.scrollHeight;
+            tableContainer.scrollTop = table.scrollHeight;
 
         } else {
             alert('Alimento não encontrado');
@@ -51,7 +53,7 @@ function verificarAlimentoTabela(alimento) {
         trs.forEach((tr) => {
             let array = tr.innerHTML.replaceAll("/", "").split("<td>");
             if ( array != null) {
-                // deu erro, remova o primeiro caso tenha mais de 1
+                // Verifica se o segundo elemento é undefined
                 if (typeof array[1] != "undefined") {
                     var descAlimento = array[1].split(" ")
                     if (descAlimento.length > 1) {
@@ -60,7 +62,7 @@ function verificarAlimentoTabela(alimento) {
                         }
                     }
                     descAlimento = descAlimento.toString().replaceAll(",", " ");
-                    console.log(descAlimento)
+                    
                     if ( descAlimento == alimento.nome) {
                         let qtde = (Number(array[5])+Number(alimento.calorias)) / Number(alimento.calorias);
                         tr.innerHTML = `<td>${qtde + " " + descAlimento}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td>`;
@@ -75,6 +77,15 @@ function verificarAlimentoTabela(alimento) {
         return false;
       }
 }
+
+// Método do botão de limpar a tabela
+btnLimparTabela.addEventListener('click', () => {
+    table.innerHTML = '<tr><th>Alimento</th><th>Porção</th><th>Calorias</th></tr><tr></tr><tr><td>-</td><td>-</td><td>-</td></tr>';
+
+    primeiroAlimento = true;
+    arrayTabela.length = 0;
+    total.innerHTML = 0;
+});
 
 /*
 Método utilizado para extrair os dados dos alimentos de um js da internet
