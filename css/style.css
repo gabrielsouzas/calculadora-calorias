@@ -146,23 +146,33 @@ section {
     box-shadow: 4px 4px var(--main-color);
 }
 
+#btn-remover {
+    box-shadow: 2px 2px var(--text-color);
+    padding: 5px 7px;
+}
+
+#btn-remover:hover {
+    box-shadow: 2px 2px var(--main-color);
+}
+
+/* Tabela de alimentos */
 table {
     border-collapse: collapse;
 }
 
 th, td {
     border: 1px solid var(--text-color);
-    padding: 5px 15px;
+    padding: 5px 14px;
     text-align: center;
 }
 
 th {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     background-color: #ec7d7d;
 }
 
 td {
-    font-size: 1rem;
+    font-size: 0.7rem;
 }
 
 /*
