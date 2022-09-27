@@ -7,7 +7,7 @@ const comboboxAlimentos = document.querySelector('#list-alimentos');
 const btnLimparTabela = document.querySelector('#btn-limpar');
 
 var primeiroAlimento = true;
-const arrayTabela = [];
+var arrayTabela = [];
 
 // Preenche a caixa de seleção de alimentos com o array de objetos "alimentos"
 preencherComboBox();
@@ -19,12 +19,12 @@ btnAdd.addEventListener('click', () => {
         if (alimento != null) {
             if (primeiroAlimento) {
                 // Limpa a tabela
-                table.innerHTML = '<tr><th>Alimento</th><th>Porção</th><th>Calorias</th></tr><tr></tr>';
+                table.innerHTML = '<tr><th>Alimento</th><th>Porção</th><th>Calorias</th><th>Del</th></tr>';
                 primeiroAlimento = false;
             }
             
             if (!verificarAlimentoTabela(alimento)) {
-                table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td></tr>`;
+                table.innerHTML += `<tr><td>${alimento.nome}</td><td>${alimento.porcao}</td><td>${alimento.calorias}</td><td><button id="btn-remover" class='bx bxs-trash' onclick='remover("${alimento.nome}")'></button></td></tr>`;
             }
             total.innerHTML = Number(total.innerHTML) + Number(alimento.calorias);
 
@@ -65,7 +65,7 @@ function verificarAlimentoTabela(alimento) {
                     
                     if ( descAlimento == alimento.nome) {
                         let qtde = (Number(array[5])+Number(alimento.calorias)) / Number(alimento.calorias);
-                        tr.innerHTML = `<td>${qtde + " " + descAlimento}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td>`;
+                        tr.innerHTML = `<td>${qtde + " " + descAlimento}</td><td>${array[3]}</td><td>${Number(array[5])+Number(alimento.calorias)}</td><td><button id="btn-remover" class='bx bxs-trash' onclick='remover("${descAlimento}")'></button></td>`;
                     }
                 }
                 
@@ -80,12 +80,64 @@ function verificarAlimentoTabela(alimento) {
 
 // Método do botão de limpar a tabela
 btnLimparTabela.addEventListener('click', () => {
-    table.innerHTML = '<tr><th>Alimento</th><th>Porção</th><th>Calorias</th></tr><tr></tr><tr><td>-</td><td>-</td><td>-</td></tr>';
+    resetarTabela();
+});
+
+// Resetar tabela
+function resetarTabela() {
+    table.innerHTML = `<tr><th>Alimento</th><th>Porção</th><th>Calorias</th><th>Del</th></tr><tr></tr><tr><td>-</td><td>-</td><td>-</td><td><button id="btn-remover" class='bx bxs-trash'></button></td></tr>`;
 
     primeiroAlimento = true;
     arrayTabela.length = 0;
     total.innerHTML = 0;
-});
+}
+
+// Remover alimento da tabela através do botão "btn-remover"
+function remover(nomeAlimento) {
+    const alimentoLista = alimentos.find( alimento => alimento.nome == nomeAlimento);
+    var trHtml = document.querySelectorAll('tr');
+
+    trHtml.forEach((tr) => {
+        let array = tr.innerHTML.replaceAll("/", "").split("<td>");
+        if ( array != null) {
+            // Verifica se o segundo elemento é undefined (onde está o nome do alimento)
+            if (typeof array[1] != "undefined") {
+                // Transforma o nome do alimento em um array que foi separado por espaço
+                var descAlimento = array[1].split(" ")
+                if (descAlimento.length > 1) {
+                    // Verifica se o alimento tem um numero na frente e o remove
+                    if (!isNaN(descAlimento[0])) {
+                        descAlimento.shift();
+                    }
+                }
+                // Transforma o array do nome do alimento em uma string, trocando as , por espaço como o nome original
+                descAlimento = descAlimento.toString().replaceAll(",", " ");
+                
+                if ( descAlimento == alimentoLista.nome) {
+                    let qtde = (Number(array[5])-Number(alimentoLista.calorias)) / Number(alimentoLista.calorias);
+
+                    if (qtde > 0) {
+                        tr.innerHTML = `<td>${qtde + " " + descAlimento}</td><td>${array[3]}</td><td>${Number(array[5])-Number(alimentoLista.calorias)}</td><td><button id="btn-remover" class='bx bxs-trash' onclick='remover("${descAlimento}")'></button></td>`;
+
+                        total.innerHTML = Number(total.innerHTML) - Number(alimentoLista.calorias);
+                    } else {
+                        if (trHtml.length <= 2) {
+                            resetarTabela();
+                        } else {
+                            tr.remove();
+                            if (arrayTabela.length > 0) {
+                                arrayTabela = arrayTabela.filter(al => al != nomeAlimento);
+                            }
+                            total.innerHTML = Number(total.innerHTML) - Number(alimentoLista.calorias);
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+    });
+}
 
 /*
 Método utilizado para extrair os dados dos alimentos de um js da internet
