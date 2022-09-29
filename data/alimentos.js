@@ -9,7 +9,7 @@ const alimentos = [
         "porcao": "1 fatia grande (100 g)",
         "calorias": "49"
     },
-    {
+    /*{
         "nome": "Acerola",
         "porcao": "1 pequena (10 g)",
         "calorias": "2"
@@ -1998,7 +1998,7 @@ const alimentos = [
         "nome": "Vitamina de frutas com leite",
         "porcao": "1 copo (250 ml)",
         "calorias": "95"
-    }
+    }*/
 ]
 
 // Dados da internet usados

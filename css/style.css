@@ -99,6 +99,10 @@ section {
     padding: 0 1rem;
 }
 
+h1 {
+    text-align: center;
+}
+
 /* Home */
 .home {
     padding-top: 80px;
@@ -128,8 +132,9 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 30px;
+    height: calc(100vh - 142px);
 }
 
 .calculadora label {
@@ -195,4 +200,48 @@ tr:nth-child(even) {
     overflow-x: auto;
     max-height: 253px;
     max-width: 100%;
+}
+
+/* Section Treino */
+
+/* Peito */
+
+.treino h1 {
+    padding-bottom: 20px;
+}
+
+.treino h2, h3, h5 {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.menu-treino {
+    padding-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.menu-treino a {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 8px;
+    margin: 3px;
+    box-shadow: 3px 3px var(--text-color);
+    transition: ease all 0.35s;
+}
+
+.menu-treino a:hover {
+    background: var(--text-color);
+    color: var(--main-color);
+    box-shadow: 3px 3px var(--main-color);
+}
+
+.peito {
+    padding-bottom: 10px;
+}
+
+.treino img {
+    max-width: 100%;
+    float: left;
 }
