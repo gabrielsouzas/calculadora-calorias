@@ -210,7 +210,12 @@ tr:nth-child(even) {
     padding-bottom: 20px;
 }
 
-.treino h2, h3, h5 {
+.treino h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.treino h3, h5 {
     text-align: center;
     padding-bottom: 15px;
 }
@@ -237,11 +242,28 @@ tr:nth-child(even) {
     box-shadow: 3px 3px var(--main-color);
 }
 
-.peito {
+.musculo {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 10px;
 }
 
 .treino img {
     max-width: 100%;
     float: left;
+}
+
+.instrucoes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 0;
+}
+
+.instrucoes span {
+    color: var(--text-color);
+}
+
+.instrucoes strong {
+    color: #ec7d7d;
 }
