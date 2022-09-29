@@ -11,6 +11,7 @@
     text-decoration: none;
     list-style: none;
     font-family: 'Rubik', sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* Variaveis */
@@ -92,6 +93,26 @@ span {
     cursor: pointer;
     display: block;
     padding: 1rem;
+}
+
+/* Botão voltar ao topo */
+#btn-voltar-ao-topo {
+    border-radius: 100%;
+    bottom: 14px;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    position: fixed;
+    right: 22px;
+    z-index: 3;
+    font-size: 1.6rem;
+    
+    padding: 3px;
+    background: var(--main-color);
+    color: var(--text-color);
+    /*box-shadow: 2px 3px 19px -2px rgba(0, 0, 0, .75);*/
+    box-shadow: 2px 2px var(--text-color);
+    transition: ease all 0.35s;
 }
 
 /* Section */
@@ -213,8 +234,8 @@ tr:nth-child(even) {
 .treino h2 {
     text-align: center;
     padding: 20px 0;
-    color: var(--main-color);
-    text-shadow: 3px 3px var(--text-color);
+    color: #d61c1cde;
+    text-shadow: 1px 1px var(--text-color);
 }
 
 .treino h3, h5 {
@@ -258,7 +279,7 @@ tr:nth-child(even) {
     margin-top: 8px;
 
     background: #0b0b13;
-    padding: 10px 5px;
+    padding: 10px 8px;
     border-radius: 5px;
     cursor: pointer;
     transition: all .40s;
@@ -272,6 +293,8 @@ tr:nth-child(even) {
 .treino img {
     max-width: 100%;
     float: left;
+    width: 100%;
+    height: 100%;
 }
 
 .instrucoes {
@@ -283,6 +306,7 @@ tr:nth-child(even) {
 
 .instrucoes span {
     color: var(--text-color);
+    font-size: 0.9rem;
 }
 
 .instrucoes strong {

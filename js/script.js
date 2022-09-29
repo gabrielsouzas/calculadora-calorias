@@ -5,6 +5,8 @@ const tableContainer = document.querySelector('#table-container');
 const total = document.querySelector('#total');
 const comboboxAlimentos = document.querySelector('#list-alimentos');
 const btnLimparTabela = document.querySelector('#btn-limpar');
+const secaoTreino = document.querySelector('.treino');
+const btnVoltarAoTopo = document.querySelector("#btn-voltar-ao-topo");
 
 var primeiroAlimento = true;
 var arrayTabela = [];
@@ -138,6 +140,12 @@ function remover(nomeAlimento) {
         }
     });
 }
+
+/* Evento botão voltar ao topo */
+btnVoltarAoTopo.addEventListener("click", function() {
+    console.log('clicou')
+    window.scrollTo(0, 0);
+});
 
 /*
 Método utilizado para extrair os dados dos alimentos de um js da internet
