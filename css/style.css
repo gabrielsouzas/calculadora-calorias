@@ -225,7 +225,9 @@ tr:nth-child(even) {
 
 /* Section Treino */
 
-/* Peito */
+.treino {
+    height: calc(100vh - 66px);
+}
 
 .treino h1 {
     padding-bottom: 20px;
@@ -249,17 +251,19 @@ tr:nth-child(even) {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.menu-treino a {
+.menu-treino button {
     background-color: var(--main-color);
     color: var(--text-color);
+    border: none;
     text-align: center;
     padding: 10px 8px;
     margin: 3px;
     box-shadow: 3px 3px var(--text-color);
+    font-size: 1rem;
     transition: ease all 0.35s;
 }
 
-.menu-treino a:hover {
+.menu-treino button:hover {
     background: var(--text-color);
     color: var(--main-color);
     box-shadow: 3px 3px var(--main-color);
@@ -267,10 +271,16 @@ tr:nth-child(even) {
 
 /* Div de cada musculo */
 .musculo {
-    display: flex;
+    display: none;
     flex-direction: column;
     padding-bottom: 10px;
 }
+
+/*#peito, #biceps {
+    display: none;
+    flex-direction: column;
+    padding-bottom: 10px;
+}*/
 
 /* Div de cada exercicio */
 .musculo-exercicio {

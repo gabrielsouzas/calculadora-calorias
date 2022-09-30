@@ -8,6 +8,21 @@ const btnLimparTabela = document.querySelector('#btn-limpar');
 const secaoTreino = document.querySelector('.treino');
 const btnVoltarAoTopo = document.querySelector("#btn-voltar-ao-topo");
 
+const menuTreino = document.querySelector('.menu-treino')
+const btnPeito = document.querySelector('#btn-peito');
+const btnBiceps = document.querySelector('#btn-biceps');
+const btnCostas = document.querySelector('#btn-costas');
+const btnTriceps = document.querySelector('#btn-triceps');
+const btnOmbro = document.querySelector('#btn-ombro');
+const btnTrapezio = document.querySelector('#btn-trapezio');
+const btnPerna = document.querySelector('#btn-perna');
+const btnAbdomen = document.querySelector('#btn-abdomen');
+
+const sectionPeito = document.querySelector('#peito');
+
+const btnTreino = document.getElementsByClassName('btn-treino');
+
+var cliqueBtnMusculo = false;
 var primeiroAlimento = true;
 var arrayTabela = [];
 
@@ -143,9 +158,100 @@ function remover(nomeAlimento) {
 
 /* Evento botão voltar ao topo */
 btnVoltarAoTopo.addEventListener("click", function() {
-    console.log('clicou')
     window.scrollTo(0, 0);
 });
+
+/* Função para criar o evento clique de cada botão pelo id */
+function atribuirEvento(id){      
+    document.getElementById(id).addEventListener("click", cliqueBotaoTreino);
+}
+
+/* Laço que percorre os buttons e cria os eventos pelo método atribuirEvento */
+for (i = 0; i < btnTreino.length; i++){
+    var ev = btnTreino[i].id;
+    atribuirEvento(ev);
+}
+
+function cliqueBotaoTreino() {
+    if (!cliqueBtnMusculo) {
+        btnBiceps.style.display = 'none';
+        btnCostas.style.display = 'none';
+        btnTriceps.style.display = 'none';
+        btnOmbro.style.display = 'none';
+        btnTrapezio.style.display = 'none';
+        btnPerna.style.display = 'none';
+        btnAbdomen.style.display = 'none';
+
+        menuTreino.style.display = 'block';
+
+        btnPeito.style.width = '100%';
+        btnPeito.style.fontSize = '1.2rem';
+        btnPeito.style.fontWeight = 'bold';
+
+        sectionPeito.style.display = 'flex';
+
+        cliqueBtnMusculo = true;
+    } else {
+        btnBiceps.style.display = 'block';
+        btnCostas.style.display = 'block';
+        btnTriceps.style.display = 'block';
+        btnOmbro.style.display = 'block';
+        btnTrapezio.style.display = 'block';
+        btnPerna.style.display = 'block';
+        btnAbdomen.style.display = 'block';
+
+        menuTreino.style.display = 'grid';
+
+        btnPeito.style.width = 'auto';
+        btnPeito.style.fontSize = '1rem';
+        btnPeito.style.fontWeight = '400';
+
+        sectionPeito.style.display = 'none';
+
+        cliqueBtnMusculo = false;
+    }
+}
+/*
+btnPeito.addEventListener('click', () => {
+    if (!cliqueBtnMusculo) {
+        /* Esconde os outros botões 
+        btnBiceps.style.display = 'none';
+        btnCostas.style.display = 'none';
+        btnTriceps.style.display = 'none';
+        btnOmbro.style.display = 'none';
+        btnTrapezio.style.display = 'none';
+        btnPerna.style.display = 'none';
+        btnAbdomen.style.display = 'none';
+
+        menuTreino.style.display = 'block';
+
+        btnPeito.style.width = '100%';
+        btnPeito.style.fontSize = '1.2rem';
+        btnPeito.style.fontWeight = 'bold';
+
+        sectionPeito.style.display = 'flex';
+
+        cliqueBtnMusculo = true;
+    } else {
+        btnBiceps.style.display = 'block';
+        btnCostas.style.display = 'block';
+        btnTriceps.style.display = 'block';
+        btnOmbro.style.display = 'block';
+        btnTrapezio.style.display = 'block';
+        btnPerna.style.display = 'block';
+        btnAbdomen.style.display = 'block';
+
+        menuTreino.style.display = 'grid';
+
+        btnPeito.style.width = 'auto';
+        btnPeito.style.fontSize = '1rem';
+        btnPeito.style.fontWeight = '400';
+
+        sectionPeito.style.display = 'none';
+
+        cliqueBtnMusculo = false;
+    }
+});*/
 
 /*
 Método utilizado para extrair os dados dos alimentos de um js da internet
