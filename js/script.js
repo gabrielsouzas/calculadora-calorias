@@ -20,6 +20,7 @@ const btnAbdomen = document.querySelector('#btn-abdomen');
 
 const sectionPeito = document.querySelector('#peito');
 
+const divsMusculos = document.getElementsByClassName('musculo');
 const btnTreino = document.getElementsByClassName('btn-treino');
 
 var cliqueBtnMusculo = false;
@@ -162,18 +163,81 @@ btnVoltarAoTopo.addEventListener("click", function() {
 });
 
 /* Função para criar o evento clique de cada botão pelo id */
-function atribuirEvento(id){      
-    document.getElementById(id).addEventListener("click", cliqueBotaoTreino);
+function atribuirEvento(id, btnClicado, divMusculo){      
+    document.getElementById(id).addEventListener("click", () => {
+        if (!cliqueBtnMusculo) {
+
+            for (i = 0; i < btnTreino.length; i++){
+                if (btnTreino[i].id != btnClicado.id) {
+                    btnTreino[i].style.display = 'none';
+                }
+            }
+    
+            menuTreino.style.display = 'block';
+    
+            btnClicado.style.width = '100%';
+            btnClicado.style.fontSize = '1.2rem';
+            btnClicado.style.fontWeight = 'bold';
+            
+            divMusculo.style.display = 'flex';
+    
+            cliqueBtnMusculo = true;
+            
+        } else {
+            
+            for (i = 0; i < btnTreino.length; i++){
+                if (btnTreino[i].id != btnClicado.id) {
+                    btnTreino[i].style.display = 'block';
+                }
+            }
+
+            menuTreino.style.display = 'grid';
+    
+            btnClicado.style.width = 'auto';
+            btnClicado.style.fontSize = '1rem';
+            btnClicado.style.fontWeight = '400';
+    
+            divMusculo.style.display = 'none';
+    
+            cliqueBtnMusculo = false;
+            
+        }
+    });
 }
 
 /* Laço que percorre os buttons e cria os eventos pelo método atribuirEvento */
 for (i = 0; i < btnTreino.length; i++){
     var ev = btnTreino[i].id;
-    atribuirEvento(ev);
+    /* Atenção, as div de musculos devem estar na mesma ordem que os botões para funcionar */
+    atribuirEvento(ev, btnTreino[i], divsMusculos[i]);
 }
 
-function cliqueBotaoTreino() {
+/*
+function cliqueBotaoTreino(btnClicado) {
     if (!cliqueBtnMusculo) {
+
+        console.log('entrou')
+
+        /*
+        for (i = 0; i < btnTreino.length; i++){
+            var ev = btnTreino[i].id;
+            if (btnTreino[i].id != btnClicado.id) {
+                btnTreino[i].style.display = 'none';
+            }
+        }
+
+        menuTreino.style.display = 'block';
+
+        btnClicado.style.width = '100%';
+        btnClicado.style.fontSize = '1.2rem';
+        btnClicado.style.fontWeight = 'bold';
+        
+        sectionPeito.style.display = 'flex';
+
+        cliqueBtnMusculo = true;
+        */
+
+        /*
         btnBiceps.style.display = 'none';
         btnCostas.style.display = 'none';
         btnTriceps.style.display = 'none';
@@ -184,6 +248,7 @@ function cliqueBotaoTreino() {
 
         menuTreino.style.display = 'block';
 
+        
         btnPeito.style.width = '100%';
         btnPeito.style.fontSize = '1.2rem';
         btnPeito.style.fontWeight = 'bold';
