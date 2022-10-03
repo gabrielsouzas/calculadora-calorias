@@ -5,11 +5,16 @@ const tableContainer = document.querySelector('#table-container');
 const total = document.querySelector('#total');
 const comboboxAlimentos = document.querySelector('#list-alimentos');
 const btnLimparTabela = document.querySelector('#btn-limpar');
+
+const secaoCalculadora = document.querySelector('.calculadora');
 const secaoTreino = document.querySelector('.treino');
+
 const btnVoltarAoTopo = document.querySelector("#btn-voltar-ao-topo");
+const btnTopo = document.querySelector("#btn-topo");
 
 const menuTreino = document.querySelector('.menu-treino')
-const btnPeito = document.querySelector('#btn-peito');
+
+/*const btnPeito = document.querySelector('#btn-peito');
 const btnBiceps = document.querySelector('#btn-biceps');
 const btnCostas = document.querySelector('#btn-costas');
 const btnTriceps = document.querySelector('#btn-triceps');
@@ -18,7 +23,7 @@ const btnTrapezio = document.querySelector('#btn-trapezio');
 const btnPerna = document.querySelector('#btn-perna');
 const btnAbdomen = document.querySelector('#btn-abdomen');
 
-const sectionPeito = document.querySelector('#peito');
+const sectionPeito = document.querySelector('#peito');*/
 
 const divsMusculos = document.getElementsByClassName('musculo');
 const btnTreino = document.getElementsByClassName('btn-treino');
@@ -157,9 +162,14 @@ function remover(nomeAlimento) {
     });
 }
 
-/* Evento botão voltar ao topo */
-btnVoltarAoTopo.addEventListener("click", function() {
+/* Evento botão voltar ao topo*/
+btnTopo.addEventListener("click", function() {
     window.scrollTo(0, 0);
+});
+
+/* Evento botão voltar ao topo do Guia de Treino*/
+btnVoltarAoTopo.addEventListener("click", function() {
+    window.scrollTo(0, secaoCalculadora.clientHeight);
 });
 
 /* Função para criar o evento clique de cada botão pelo id */
@@ -175,13 +185,19 @@ function atribuirEvento(id, btnClicado, divMusculo){
     
             menuTreino.style.display = 'block';
     
+            /*btnClicado.classList.toggle('expandir');*/
+
             btnClicado.style.width = '100%';
             btnClicado.style.fontSize = '1.2rem';
             btnClicado.style.fontWeight = 'bold';
             
+            
             divMusculo.style.display = 'flex';
     
             cliqueBtnMusculo = true;
+
+            btnVoltarAoTopo.style.display = 'block';
+            btnTopo.style.display = 'none';
             
         } else {
             
@@ -200,7 +216,9 @@ function atribuirEvento(id, btnClicado, divMusculo){
             divMusculo.style.display = 'none';
     
             cliqueBtnMusculo = false;
-            
+
+            btnVoltarAoTopo.style.display = 'none'
+            btnTopo.style.display = 'block';
         }
     });
 }
