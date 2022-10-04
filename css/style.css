@@ -353,3 +353,13 @@ tr:nth-child(even) {
 .instrucoes strong {
     color: #ec7d7d;
 }
+
+/* Telas maiores */
+/*@media screen and (min-width: 420px) {
+    header {
+        padding: 0 5%;
+    }
+    main {
+        padding: 0 5%;
+    }
+}*/
