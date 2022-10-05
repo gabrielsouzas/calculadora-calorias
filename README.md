@@ -21,6 +21,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Inserir mais exemplos de treinos
 - [ ] Melhorar as imagens dos treinos
 - [ ] Melhorar aspectos da interface
+- [ ] Funcionalidades do Menu
 
 ## ☕ Usando o WorkOut App
 
