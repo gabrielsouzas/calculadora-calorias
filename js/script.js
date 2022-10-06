@@ -1,3 +1,7 @@
+/* Navbar */
+let menu = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
 const input = document.querySelector('#inpalimentos');
 const btnAdd = document.querySelector('#btnadd');
 const table = document.querySelector('table');
@@ -14,23 +18,23 @@ const btnTopo = document.querySelector("#btn-topo");
 
 const menuTreino = document.querySelector('.menu-treino')
 
-/*const btnPeito = document.querySelector('#btn-peito');
-const btnBiceps = document.querySelector('#btn-biceps');
-const btnCostas = document.querySelector('#btn-costas');
-const btnTriceps = document.querySelector('#btn-triceps');
-const btnOmbro = document.querySelector('#btn-ombro');
-const btnTrapezio = document.querySelector('#btn-trapezio');
-const btnPerna = document.querySelector('#btn-perna');
-const btnAbdomen = document.querySelector('#btn-abdomen');
-
-const sectionPeito = document.querySelector('#peito');*/
-
 const divsMusculos = document.getElementsByClassName('musculo');
 const btnTreino = document.getElementsByClassName('btn-treino');
 
 var cliqueBtnMusculo = false;
 var primeiroAlimento = true;
 var arrayTabela = [];
+
+// Controle Menu e Navbar
+menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+
+window.onscroll = () => {
+    menu.classList.remove('bx-x');
+    navbar.classList.remove('active');
+};
 
 // Preenche a caixa de seleção de alimentos com o array de objetos "alimentos"
 preencherComboBox();

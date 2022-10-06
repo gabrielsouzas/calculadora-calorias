@@ -23,8 +23,8 @@
         <div class="bx bx-menu" id="menu-icon"></div>
 
         <ul class="navbar">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#calculadora">Calculadora</a></li>
+            <!--<li><a href="#home">Home</a></li>-->
+            <li><a href="#home">Calculadora</a></li>
             <li><a href="#treino">Guia Treino</a></li>
         </ul>
     </header>
@@ -33,11 +33,11 @@
         <button id="btn-voltar-ao-topo" href="#" class='bx bxs-chevrons-up'></button>
         <button id="btn-topo" href="#" class='bx bxs-chevrons-up'></button>
 
-        <section class="home">
+        <section id="home" class="home">
             <h1><span>Calc</span>uladora de <span>Calorias</span></h1>
         </section>
 
-        <section class="calculadora">
+        <section id="calculadora" class="calculadora">
             <div class="container">
                 <label for="inpalimentos">Alimento: </label>
                 <input onClick="this.select();" type="text" id="inpalimentos" name="inpalimentos" list="list-alimentos" placeholder="Selecione um alimento"/>
@@ -72,7 +72,7 @@
               <button id="btn-limpar">Limpar Tabela</button>
         </section>
 
-        <section class="treino">
+        <section id="treino" class="treino">
             <h1><span>Guia</span> de <span>Treino</span></h1>
             <h5>Clique em um botão para escolher um treino</h5>
 
