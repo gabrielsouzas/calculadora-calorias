@@ -355,11 +355,13 @@ tr:nth-child(even) {
 }
 
 /* Telas maiores */
-/*@media screen and (min-width: 420px) {
+@media screen and (min-width: 420px) {
     header {
-        padding: 0 5%;
+        width: 420px;
+        margin: auto;
     }
     main {
-        padding: 0 5%;
+        width: 420px;
+        margin: auto;
     }
-}*/
+}
