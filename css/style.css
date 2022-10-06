@@ -158,7 +158,7 @@ h1 {
     font-size: 1.4rem;
     color: var(--text-color);
     /*text-shadow: 0 0 10px var(--text-color);*/
-    font-family: 'Rubik Dirt', cursive;
+    /*font-family: 'Rubik Dirt', cursive;*/
     letter-spacing: 2px;
 }
 
