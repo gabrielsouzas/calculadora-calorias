@@ -21,6 +21,9 @@ const menuTreino = document.querySelector('.menu-treino')
 const divsMusculos = document.getElementsByClassName('musculo');
 const btnTreino = document.getElementsByClassName('btn-treino');
 
+const legendaTreino = document.querySelector('.legenda');
+const legendaTitulo = document.querySelector('.legenda-titulo');
+
 var cliqueBtnMusculo = false;
 var primeiroAlimento = true;
 var arrayTabela = [];
@@ -202,6 +205,9 @@ function atribuirEvento(id, btnClicado, divMusculo){
 
             btnVoltarAoTopo.style.display = 'block';
             btnTopo.style.display = 'none';
+
+            legendaTreino.style.display = 'flex';
+            legendaTitulo.style.display = 'block';
             
         } else {
             
@@ -223,6 +229,9 @@ function atribuirEvento(id, btnClicado, divMusculo){
 
             btnVoltarAoTopo.style.display = 'none'
             btnTopo.style.display = 'block';
+
+            legendaTreino.style.display = 'none';
+            legendaTitulo.style.display = 'none';
         }
     });
 }

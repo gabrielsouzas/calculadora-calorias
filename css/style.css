@@ -355,6 +355,54 @@ tr:nth-child(even) {
     color: #ec7d7d;
 }
 
+/* Legenda Treinos*/
+
+.legenda-titulo {
+    display: none;
+    text-align: center;
+    padding-bottom: 15px;
+    color: gray;
+}
+
+.legenda {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.legenda-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.legenda-item span {
+    color: gray;
+    padding-left: 5px;
+}
+
+.box {
+    width: 15px;
+    height: 15px;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.legenda-item #principal {
+    background-color: rgb(156, 53, 54);
+}
+
+.legenda-item #secundario {
+    background-color: rgb(52, 120, 183);
+}
+
+.legenda-item #acessorio {
+    background-color: rgb(147, 207, 59);
+}
+
+
 /* Telas maiores */
 @media screen and (min-width: 420px) {
     header {
