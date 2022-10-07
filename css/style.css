@@ -17,6 +17,7 @@
 /* Variaveis */
 :root {
     --bg-color: #10101a;
+    --bg-color_big: #1d1d2e;
     --main-color: #bf2f2f;
     --text-color: #fff;
 }
@@ -358,10 +359,17 @@ tr:nth-child(even) {
 @media screen and (min-width: 420px) {
     header {
         width: 420px;
-        margin: auto;
+
+        /* Centraliza o header apenas horixontalmente (eixo X) */
+        left: 50%;
+        transform: translateX(-50%);
+
+        background-color: var(--bg-color_big);
     }
     main {
+        /* Definindo uma largura e a margem para auto o proprio motor vai calcular a margem, deixando o elemento centralizado, não importando o tamanho da tela */
         width: 420px;
         margin: auto;
+        background-color: var(--bg-color_big);
     }
 }
