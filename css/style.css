@@ -361,6 +361,10 @@ tr:nth-child(even) {
 
 /* Legenda Treinos*/
 
+.legenda-container {
+    background-color: var(--bg-color);
+}
+
 .legenda-titulo {
     display: none;
     text-align: center;

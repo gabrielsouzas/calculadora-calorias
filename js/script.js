@@ -20,7 +20,9 @@ const menuTreino = document.querySelector('.menu-treino')
 
 const divsMusculos = document.getElementsByClassName('musculo');
 const btnTreino = document.getElementsByClassName('btn-treino');
+const btnMusculoExercicio = document.querySelector('.musculo-exercicio');
 
+const legendaContainer = document.querySelector('.legenda-container');
 const legendaTreino = document.querySelector('.legenda');
 const legendaTitulo = document.querySelector('.legenda-titulo');
 
@@ -35,6 +37,19 @@ menu.onclick = () => {
 };
 
 window.onscroll = () => {
+
+    //console.log(window.pageYOffset);
+    //console.log(legendaContainer.getBoundingClientRect().top)
+/*
+    if (legendaContainer.getBoundingClientRect().top >= 66 && legendaContainer.getBoundingClientRect().top <= 75) {
+        legendaContainer.style.position = 'fixed';
+        legendaContainer.style.top = '67px';
+        legendaContainer.style.left = '16px';
+        legendaContainer.style.right = '334px';
+        legendaContainer.style.width = btnMusculoExercicio.getBoundingClientRect().width + 'px';//'100%';
+        legendaContainer.style.padding = '5px';
+    }*/
+
     menu.classList.remove('bx-x');
     navbar.classList.remove('active');
 };
