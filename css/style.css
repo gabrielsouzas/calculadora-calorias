@@ -424,4 +424,8 @@ tr:nth-child(even) {
         margin: auto;
         background-color: var(--bg-color_big);
     }
+    .treino {
+        
+        background-color: var(--bg-color_big);
+    }
 }

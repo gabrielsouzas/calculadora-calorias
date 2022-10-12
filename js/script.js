@@ -208,6 +208,9 @@ function atribuirEvento(id, btnClicado, divMusculo){
 
             legendaTreino.style.display = 'flex';
             legendaTitulo.style.display = 'block';
+
+            /*Corrigir bug de tamanho */
+            secaoTreino.style.height = '100%';
             
         } else {
             
@@ -232,6 +235,8 @@ function atribuirEvento(id, btnClicado, divMusculo){
 
             legendaTreino.style.display = 'none';
             legendaTitulo.style.display = 'none';
+
+            secaoTreino.style.height = 'calc(100vh - 66px)';
         }
     });
 }
