@@ -434,19 +434,19 @@ tr:nth-child(even) {
     }
 }
 
-@media screen and (min-width: 360px) {
+@media screen and (max-width: 360px) {
     .calculadora input {
         width: 140px;
     }
 }
 
-@media screen and (min-width: 325px) {
+@media screen and (max-width: 325px) {
     .calculadora input {
         width: 120px;
     }
 }
 
-@media screen and (min-width: 305px) {
+@media screen and (max-width: 305px) {
     .calculadora input {
         width: 90px;
     }
